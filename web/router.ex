@@ -20,7 +20,9 @@ defmodule ConmanData.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ConmanData do
-  #   pipe_through :api
-  # end
+  scope "/api", ConmanData do
+    pipe_through :api
+
+    resources "/contacts", ContactController, except: [:new, :edit]
+  end
 end
